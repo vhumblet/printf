@@ -14,9 +14,11 @@ int     ft_printf(const char *str, ...)
         if (str[i] == '%' && ft_convertion(str[i + 1]))
             ft_converting(str[++i], arg, &count);
         else if (str[i] == '%' && !ft_convertion(str[i + 1]))
-            i++;
+            ++i;
         else
             ft_putchar(str[i], &count);
+        if (count == -1)
+			return (-1);
     }
     va_end(arg);
     return (count);

@@ -2,8 +2,13 @@
 
 static void     ft_putchar_adress(int nb, char *base, int *count)
 {
-    write(1, &base[nb], 1);
-    *count += 1;
+    int     i;
+
+    i = write(1, &base[nb], 1);
+    if (i == -1 || i < 0)
+        *count = -1;
+    else
+        *count += 1;
 }
 
 static void     ft_put_adress(unsigned long nb, int *count)

@@ -5,6 +5,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdarg.h>
+# include <stdio.h>
 
 # define DECIMAL "0123456789"
 # define UPPER_EXADECIMAL "0123456789ABCDEF"

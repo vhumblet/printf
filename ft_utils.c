@@ -12,8 +12,13 @@ int     ft_strlen(char *str)
 
 void    ft_putchar(char c, int *count)
 {
-    *count += 1;
-    write (1, &c, 1);
+	int i;
+
+	i = write (1, &c, 1);
+	if (i == -1 || i < 0)
+		*count = -1;
+	else
+		*count += 1;
 }
 
 void    ft_putstr(char *str, int *count)
@@ -36,5 +41,5 @@ void    ft_putnbr(int nb, int *count)
     }
     if (long_nb > 9)
         ft_putnbr(long_nb / 10, count);
-    ft_putchar(long_nb % 10 + 48, count);
+    ft_putchar((long_nb % 10) + 48, count);
 }
